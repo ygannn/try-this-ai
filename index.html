@@ -1,12 +1,13 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Try This AI | AI Tools Worth Trying</title>
+    <title>Try This AI — AI Tools Worth Trying</title>
 
-    <meta name="description" content="Try This AI discovers and showcases useful AI tools, software, and websites worth trying.">
+    <meta name="description" content="Discover AI tools, software, productivity tools, design tools, and websites worth trying.">
 
     <style>
         * {
@@ -21,7 +22,7 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #070914;
+            background: #070b14;
             color: #ffffff;
             line-height: 1.6;
         }
@@ -31,95 +32,140 @@
             color: inherit;
         }
 
-        /* NAVIGATION */
+        /* =========================
+           NAVIGATION
+        ========================= */
+
         nav {
             width: 100%;
-            padding: 20px 8%;
+            padding: 18px 7%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            background: rgba(7,9,20,0.95);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            background: rgba(7, 11, 20, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .logo {
-            font-size: 22px;
-            font-weight: bold;
-            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
         }
 
-        .logo span {
-            color: #8b5cf6;
+        .logo img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            border-radius: 50%;
         }
 
-        nav ul {
-            list-style: none;
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-name {
+            color: #ffffff;
+        }
+
+        .logo-tagline {
+            font-size: 0.55rem;
+            color: #8d7cff;
+            letter-spacing: 1.5px;
+            margin-top: 4px;
+        }
+
+        .nav-links {
             display: flex;
             gap: 28px;
+            align-items: center;
         }
 
-        nav ul li a {
-            color: #c9cbd6;
-            font-size: 14px;
+        .nav-links a {
+            color: #c7c9d3;
+            font-size: 0.95rem;
             transition: 0.3s;
         }
 
-        nav ul li a:hover {
-            color: #8b5cf6;
+        .nav-links a:hover {
+            color: #8d7cff;
         }
 
-        /* HERO */
+        /* =========================
+           HERO
+        ========================= */
+
         .hero {
-            min-height: 82vh;
+            min-height: 85vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 80px 20px;
-            background:
-                radial-gradient(circle at 50% 30%, rgba(79,70,229,0.25), transparent 40%),
-                #070914;
+            padding: 80px 7%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: #5f4bff;
+            opacity: 0.12;
+            filter: blur(120px);
+            border-radius: 50%;
+            top: -150px;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .hero-content {
             max-width: 850px;
+            position: relative;
+            z-index: 2;
         }
 
-        .badge {
+        .hero-badge {
             display: inline-block;
             padding: 8px 16px;
-            border: 1px solid rgba(139,92,246,0.5);
-            border-radius: 30px;
-            color: #b8a4ff;
-            font-size: 13px;
+            border: 1px solid rgba(141, 124, 255, 0.5);
+            border-radius: 50px;
+            color: #a99cff;
+            font-size: 0.85rem;
             margin-bottom: 25px;
-            background: rgba(139,92,246,0.08);
+            background: rgba(141, 124, 255, 0.08);
         }
 
         .hero h1 {
-            font-size: clamp(45px, 8vw, 80px);
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
             line-height: 1.05;
-            margin-bottom: 22px;
+            margin-bottom: 25px;
+            font-weight: 800;
         }
 
         .hero h1 span {
-            background: linear-gradient(90deg, #60a5fa, #a78bfa);
+            background: linear-gradient(90deg, #5de0ff, #8d7cff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            max-width: 650px;
-            margin: auto;
-            color: #b8bac7;
-            font-size: 18px;
-            margin-bottom: 35px;
+            max-width: 680px;
+            margin: 0 auto 35px;
+            color: #aeb3c2;
+            font-size: 1.1rem;
         }
 
-        .buttons {
+        .hero-buttons {
             display: flex;
             justify-content: center;
             gap: 15px;
@@ -127,35 +173,40 @@
         }
 
         .btn {
-            padding: 13px 24px;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: 0.3s;
             display: inline-block;
+            padding: 13px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: 0.3s;
         }
 
         .btn-primary {
-            background: linear-gradient(90deg, #6366f1, #8b5cf6);
-            color: white;
+            background: linear-gradient(90deg, #5de0ff, #8d7cff);
+            color: #05070c;
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(99,102,241,0.35);
+            box-shadow: 0 10px 30px rgba(93, 224, 255, 0.2);
         }
 
         .btn-secondary {
-            border: 1px solid #34384b;
-            color: #d7d8e1;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.03);
         }
 
         .btn-secondary:hover {
-            border-color: #8b5cf6;
+            border-color: #8d7cff;
+            color: #a99cff;
         }
 
-        /* SECTIONS */
+        /* =========================
+           GENERAL SECTIONS
+        ========================= */
+
         section {
-            padding: 90px 8%;
+            padding: 90px 7%;
         }
 
         .section-title {
@@ -164,159 +215,207 @@
         }
 
         .section-title h2 {
-            font-size: 36px;
+            font-size: 2.3rem;
             margin-bottom: 12px;
         }
 
         .section-title p {
-            color: #9699aa;
+            color: #9298aa;
+            max-width: 650px;
+            margin: auto;
         }
 
-        /* ABOUT */
+        /* =========================
+           ABOUT
+        ========================= */
+
         .about {
-            max-width: 850px;
+            max-width: 900px;
             margin: auto;
             text-align: center;
         }
 
         .about p {
-            color: #b9bbc7;
-            font-size: 17px;
+            color: #aeb3c2;
+            font-size: 1.05rem;
         }
 
-        /* TOPICS */
-        .topics {
-            background: #0a0d19;
-        }
+        /* =========================
+           CARDS
+        ========================= */
 
         .cards {
-            max-width: 1050px;
+            max-width: 1100px;
             margin: auto;
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 18px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
 
         .card {
-            padding: 28px 18px;
-            text-align: center;
-            background: #101321;
-            border: 1px solid #1d2233;
-            border-radius: 12px;
+            padding: 30px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             transition: 0.3s;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            border-color: #6366f1;
+            border-color: rgba(141, 124, 255, 0.5);
+            background: rgba(141, 124, 255, 0.05);
         }
 
-        .card .icon {
-            font-size: 30px;
-            margin-bottom: 15px;
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 18px;
         }
 
         .card h3 {
-            font-size: 16px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
         }
 
         .card p {
-            color: #9296a8;
-            font-size: 13px;
+            color: #9298aa;
+            font-size: 0.95rem;
         }
 
-        /* YOUTUBE */
-        .youtube {
+        /* =========================
+           YOUTUBE CTA
+        ========================= */
+
+        .youtube-section {
             text-align: center;
         }
 
         .youtube-box {
-            max-width: 750px;
+            max-width: 850px;
             margin: auto;
-            padding: 45px 25px;
+            padding: 60px 30px;
+            border-radius: 20px;
             background: linear-gradient(
                 135deg,
-                rgba(99,102,241,0.12),
-                rgba(139,92,246,0.05)
+                rgba(93, 224, 255, 0.08),
+                rgba(141, 124, 255, 0.08)
             );
-            border: 1px solid #252a40;
-            border-radius: 16px;
+            border: 1px solid rgba(141, 124, 255, 0.2);
         }
 
         .youtube-box h2 {
+            font-size: 2rem;
             margin-bottom: 15px;
         }
 
         .youtube-box p {
-            color: #a8aab8;
+            color: #aeb3c2;
             margin-bottom: 25px;
         }
 
-        /* CONTACT */
+        /* =========================
+           CONTACT
+        ========================= */
+
         .contact {
-            background: #0a0d19;
+            max-width: 700px;
+            margin: auto;
             text-align: center;
         }
 
         .contact p {
-            color: #a4a7b5;
-            margin-bottom: 12px;
+            color: #aeb3c2;
+            margin-bottom: 15px;
         }
 
         .email {
-            color: #8b5cf6;
-            font-weight: bold;
+            color: #8d7cff;
+            font-weight: 600;
         }
 
-        /* DISCLOSURE */
+        /* =========================
+           DISCLOSURE
+        ========================= */
+
         .disclosure {
-            max-width: 800px;
-            margin: auto;
-            padding: 25px;
-            border: 1px solid #202437;
-            border-radius: 10px;
-            background: #0d101d;
-            color: #858998;
-            font-size: 13px;
+            max-width: 900px;
+            margin: 30px auto 0;
             text-align: center;
+            color: #707688;
+            font-size: 0.8rem;
         }
 
-        /* FOOTER */
+        /* =========================
+           FOOTER
+        ========================= */
+
         footer {
-            padding: 30px 8%;
+            padding: 30px 7%;
             text-align: center;
-            border-top: 1px solid #191d2b;
-            color: #707384;
-            font-size: 13px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: #6f7485;
+            font-size: 0.85rem;
         }
 
-        /* MOBILE */
-        @media (max-width: 800px) {
-            nav {
-                padding: 18px 5%;
-            }
+        /* =========================
+           RESPONSIVE
+        ========================= */
 
-            nav ul {
+        @media (max-width: 850px) {
+
+            .nav-links {
                 display: none;
-            }
-
-            section {
-                padding: 70px 6%;
             }
 
             .cards {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .hero {
+                min-height: 75vh;
+            }
         }
 
-        @media (max-width: 500px) {
+        @media (max-width: 600px) {
+
+            nav {
+                padding: 14px 5%;
+            }
+
+            .logo img {
+                width: 42px;
+                height: 42px;
+            }
+
+            .logo {
+                gap: 9px;
+            }
+
+            .logo-tagline {
+                font-size: 0.48rem;
+            }
+
+            .hero {
+                padding: 70px 5%;
+            }
+
+            section {
+                padding: 70px 5%;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
             .cards {
                 grid-template-columns: 1fr;
             }
 
-            .hero p {
-                font-size: 16px;
+            .section-title h2 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -324,79 +423,104 @@
 
 <body>
 
-    <!-- NAVIGATION -->
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
     <nav>
-        <div class="logo">
-            Try This <span>AI</span>
+
+        <a href="#" class="logo">
+
+            <img src="channellogo.png" alt="Try This AI Logo">
+
+            <div class="logo-text">
+                <span class="logo-name">Try This AI</span>
+                <span class="logo-tagline">AI TOOLS WORTH TRYING</span>
+            </div>
+
+        </a>
+
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#tools">What We Cover</a>
+            <a href="#youtube">YouTube</a>
+            <a href="#contact">Contact</a>
         </div>
 
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#topics">What We Cover</a></li>
-            <li><a href="#youtube">YouTube</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
     </nav>
 
 
-    <!-- HERO -->
-    <header class="hero">
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero">
+
         <div class="hero-content">
 
-            <div class="badge">
+            <div class="hero-badge">
                 AI TOOLS WORTH TRYING
             </div>
 
             <h1>
-                Discover <span>AI Tools</span><br>
-                Worth Trying.
+                Discover AI Tools
+                <span>Worth Trying.</span>
             </h1>
 
             <p>
-                Try This AI discovers useful AI tools, software, and websites
-                that can help you work smarter, create better, and explore
-                what's possible with artificial intelligence.
+                We discover useful AI tools, websites, and software
+                that can help you work smarter, create faster,
+                and get more done.
             </p>
 
-            <div class="buttons">
+            <div class="hero-buttons">
 
                 <a
-                    class="btn btn-primary"
                     href="https://www.youtube.com/@TryThisAItools"
                     target="_blank"
+                    class="btn btn-primary"
                 >
                     Visit Our YouTube
                 </a>
 
                 <a
+                    href="#tools"
                     class="btn btn-secondary"
-                    href="#about"
                 >
-                    Learn More
+                    Explore Topics
                 </a>
 
             </div>
 
         </div>
-    </header>
+
+    </section>
 
 
-    <!-- ABOUT -->
+    <!-- =========================
+         ABOUT
+    ========================= -->
+
     <section id="about">
 
         <div class="section-title">
+
             <h2>About Try This AI</h2>
-            <p>Making AI discovery simple and useful.</p>
+
+            <p>
+                Simple discoveries for a world filled with AI tools.
+            </p>
+
         </div>
 
         <div class="about">
 
             <p>
-                Try This AI is a content brand focused on discovering and
-                showcasing useful AI tools, software, and websites. We create
-                short, easy-to-understand content that helps people discover
-                technology that can improve productivity, creativity, and
-                everyday work.
+                Try This AI is a content brand focused on discovering
+                and showcasing useful AI tools, software, and websites.
+                We create short, easy-to-understand videos that help
+                people discover tools that can improve productivity,
+                creativity, and everyday work.
             </p>
 
         </div>
@@ -404,44 +528,105 @@
     </section>
 
 
-    <!-- TOPICS -->
-    <section class="topics" id="topics">
+    <!-- =========================
+         WHAT WE COVER
+    ========================= -->
+
+    <section id="tools">
 
         <div class="section-title">
+
             <h2>What We Cover</h2>
-            <p>Useful technology and AI discoveries.</p>
+
+            <p>
+                Useful tools and technologies worth knowing about.
+            </p>
+
         </div>
 
         <div class="cards">
 
             <div class="card">
-                <div class="icon">🤖</div>
+
+                <div class="card-icon">🤖</div>
+
                 <h3>AI Tools</h3>
-                <p>Discover useful AI-powered tools and platforms.</p>
+
+                <p>
+                    Discover useful AI websites and tools for
+                    everyday tasks, work, and creativity.
+                </p>
+
             </div>
 
+
             <div class="card">
-                <div class="icon">⚡</div>
+
+                <div class="card-icon">⚡</div>
+
                 <h3>Productivity</h3>
-                <p>Tools designed to help you work smarter.</p>
+
+                <p>
+                    Tools that can help you save time,
+                    organize work, and become more productive.
+                </p>
+
             </div>
 
+
             <div class="card">
-                <div class="icon">🎨</div>
+
+                <div class="card-icon">🎨</div>
+
                 <h3>Design & Content</h3>
-                <p>AI tools for creativity and content creation.</p>
+
+                <p>
+                    AI tools for images, videos, writing,
+                    presentations, and content creation.
+                </p>
+
             </div>
 
+
             <div class="card">
-                <div class="icon">📈</div>
+
+                <div class="card-icon">📈</div>
+
                 <h3>Marketing</h3>
-                <p>Software for marketing and online growth.</p>
+
+                <p>
+                    Discover tools that can help with marketing,
+                    social media, and online businesses.
+                </p>
+
             </div>
 
+
             <div class="card">
-                <div class="icon">💻</div>
+
+                <div class="card-icon">💻</div>
+
                 <h3>Software</h3>
-                <p>Interesting websites and software worth exploring.</p>
+
+                <p>
+                    Useful software and online services
+                    that are worth adding to your toolkit.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">🔎</div>
+
+                <h3>Tech Discoveries</h3>
+
+                <p>
+                    Interesting websites, tools, and technology
+                    that you might not know about yet.
+                </p>
+
             </div>
 
         </div>
@@ -449,24 +634,27 @@
     </section>
 
 
-    <!-- YOUTUBE -->
-    <section class="youtube" id="youtube">
+    <!-- =========================
+         YOUTUBE
+    ========================= -->
+
+    <section id="youtube" class="youtube-section">
 
         <div class="youtube-box">
 
             <h2>Watch Try This AI</h2>
 
             <p>
-                Explore quick demos, AI discoveries, and useful tools
-                through our YouTube channel.
+                Discover AI tools through quick, simple,
+                and easy-to-understand videos.
             </p>
 
             <a
-                class="btn btn-primary"
                 href="https://www.youtube.com/@TryThisAItools"
                 target="_blank"
+                class="btn btn-primary"
             >
-                Visit YouTube Channel
+                Visit Our YouTube Channel
             </a>
 
         </div>
@@ -474,43 +662,52 @@
     </section>
 
 
-    <!-- CONTACT -->
-    <section class="contact" id="contact">
+    <!-- =========================
+         CONTACT
+    ========================= -->
+
+    <section id="contact">
 
         <div class="section-title">
-            <h2>Get in Touch</h2>
-            <p>For collaborations, partnerships, and inquiries.</p>
+
+            <h2>Contact</h2>
+
+            <p>
+                For partnerships, collaborations, or business inquiries.
+            </p>
+
         </div>
 
-       <p>
-    Email:
-    <a class="email" href="mailto:maiganjoicetabon@gmail.com">
-        yourpersonalemail@gmail.com
-    </a>
-</p>
+        <div class="contact">
+
+            <p>
+                You can reach Try This AI through email:
+            </p>
+
+            <!-- Replace this email with an email address you own -->
+            <a
+                href="mailto:maiganjoicetabon@gmail.com"
+                class="email"
+            >
+                trythisai.contact@gmail.com
+            </a>
+
+        </div>
+
+        <p class="disclosure">
+            Disclosure: Some links or recommendations on this website
+            may be affiliate links. If you make a purchase or sign up
+            through an affiliate link, we may receive a commission at
+            no additional cost to you.
+        </p>
 
     </section>
 
 
-    <!-- AFFILIATE DISCLOSURE -->
-    <section>
+    <!-- =========================
+         FOOTER
+    ========================= -->
 
-        <div class="disclosure">
-
-            <strong>Affiliate Disclosure</strong>
-
-            <br><br>
-
-            Some links shared by Try This AI may be affiliate links.
-            If you purchase or sign up through an affiliate link, we may
-            earn a commission at no additional cost to you.
-
-        </div>
-
-    </section>
-
-
-    <!-- FOOTER -->
     <footer>
 
         © 2026 Try This AI. All rights reserved.
@@ -519,3 +716,4 @@
 
 </body>
 </html>
+```
